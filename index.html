@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sathii Mild Powder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Algerian&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    /* ===== Global Styles ===== */
+    :root {
+      --primary: #4a7c59;
+      --primary-dark: #3a6a49;
+      --secondary: #FFA726;
+      --accent: #FDD835;
+      --light: #F4E7C5;
+      --dark: #333333;
+      --white: #ffffff;
+      --gray: #f5f5f5;
+      --transition: all 0.3s ease;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('https://imgcdn.stablediffusionweb.com/2024/4/5/7a9d5b27-4352-48a6-bca8-43ea52192544.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Algerian', serif;
+      font-weight: normal;
+      line-height: 1.2;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    section {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(3px);
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      box-shadow: var(--shadow);
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+    
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--white);
+    }
+    
+    .btn-secondary:hover {
+      background: #e6951f;
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+    
+    /* ===== Hero Section ===== */
+    .hero {
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: rgba(200, 200, 200, 0.2);
+      color: var(--white);
+      padding: 0 20px;
+    }
+    
+    .hero-content {
+      margin: 0 auto;
+      max-width: 800px;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 20px;
+      background: linear-gradient(to right, var(--accent), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .tagline {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--light);
+      margin: 15px 0;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+    
+    .tagline:nth-child(2) { animation-delay: 0.3s; }
+    .tagline:nth-child(3) { animation-delay: 0.6s; }
+    .tagline:nth-child(4) { animation-delay: 0.9s; }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .hero-btns {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    /* ===== Features Section ===== */
+    .features {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(3px);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .feature-card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    
+    /* ===== Order Section ===== */
+    .order {
+      background: rgba(249, 249, 249, 0.9);
+    }
+    
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--white);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      transition: var(--transition);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.2);
+    }
+    
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    select.form-control {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 1em;
+    }
+    
+    /* ===== Footer ===== */
+    .footer {
+      background: rgba(255, 248, 225, 0.9);
+      padding: 50px 0 30px;
+      text-align: center;
+    }
+    
+    .footer-logo {
+      font-size: 2rem;
+      font-family: 'Algerian', serif;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .footer-tagline {
+      color: var(--dark);
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 25px 0;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+    
+    .newsletter {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .newsletter p {
+      margin-bottom: 15px;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .newsletter-btn {
+      padding: 12px 25px;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .newsletter-btn:hover {
+      background: var(--primary-dark);
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: var(--dark);
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .copyright {
+      margin-top: 30px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    /* ===== Mobile Menu ===== */
+    .mobile-menu-btn {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: var(--white);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      font-size: 1.5rem;
+      z-index: 1000;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .mobile-menu-btn:hover {
+      background: var(--primary-dark);
+    }
+    
+    /* ===== Responsive Styles ===== */
+    @media (max-width: 992px) {
+      section {
+        padding: 60px 0;
+      }
+      
+      .section-title {
+        font-size: 2.2rem;
+      }
+      
+      .form-container {
+        padding: 30px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .feature-card {
+        padding: 25px;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero-btns {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      section {
+        padding: 50px 0;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .tagline {
+        font-size: 1.1rem;
+      }
+      
+      .form-container {
+        padding: 25px 20px;
+      }
+      
+      .feature-card {
+        padding: 20px;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+      }
+      
+      .newsletter-input, .newsletter-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Mobile Menu Button -->
+  <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Sathii Mild Powders</h1>
+        <p class="tagline">Nature's Energy, Perfectly Powdered</p>
+        <p class="tagline">Gentle care for families, beauty, and wellness—naturally</p>
+        <p class="tagline">Have you taken care of your body and skin today?</p>
+        <div class="hero-btns">
+          <a href="#order" class="btn btn-primary">Order Now</a>
+          <a href="https://en.wikipedia.org/wiki/Banana_powder" class="btn btn-secondary" target="_blank">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Benefits Section -->
+  <section class="features" id="benefits" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title">Benefits</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Boosts Energy</h3>
+          <p>Natural source of quick energy without artificial additives</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3>Skin Health</h3>
+          <p>Rich in antioxidants that promote healthy, glowing skin</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🍯</div>
+          <h3>Natural Sweetener</h3>
+          <p>Perfect alternative to refined sugars in your recipes</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🍌</div>
+          <h3>Rich in Nutrients</h3>
+          <p>Packed with potassium, vitamins, and essential minerals</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Usage Section -->
+  <section class="section" id="usage" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title">How To Use</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🥤</div>
+          <h3>Smoothies</h3>
+          <p>Blend 1-2 teaspoons into your favorite shakes and smoothies</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧖‍♀️</div>
+          <h3>Face Masks</h3>
+          <p>Mix with honey or yogurt for a nourishing facial treatment</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🍪</div>
+          <h3>Baking</h3>
+          <p>Use as flour substitute or natural sweetener in baked goods</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👶</div>
+          <h3>Infant Food</h3>
+          <p>Gentle, easily digestible nutrition for babies</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Order Section -->
+  <section class="order" id="order" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title">Place Your Order</h2>
+      <div class="form-container">
+        <form id="orderForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="product">Select Product</label>
+            <select id="product" class="form-control" required>
+              <option value="">Choose an option</option>
+              <option value="banana_powder_250">Banana Powder - 250g (₹150)</option>
+              <option value="banana_powder_500">Banana Powder - 500g (₹300)</option>
+              <option value="combo_pack">Combo Pack (250g x 2) (₹280)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="address">Shipping Address</label>
+            <textarea id="address" class="form-control" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Place Order</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">Sathii Mild Powders</div>
+      <p class="footer-tagline">Nature's Energy, Perfectly Powdered</p>
+      
+      <div class="social-links">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Facebook">👍</a>
+        <a href="#" aria-label="Twitter">🐦</a>
+        <a href="#" aria-label="WhatsApp">💬</a>
+      </div>
+      
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#usage">How To Use</a>
+        <a href="#order">Order</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+      <div class="newsletter">
+        <p>Subscribe to our newsletter for updates</p>
+        <form class="newsletter-form">
+          <input type="email" class="newsletter-input" placeholder="Your email address" required>
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+      
+      <p class="copyright">Sathii Mild Powders. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS animation
+    AOS.init();
+    
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    mobileMenuBtn.addEventListener('click', function() {
+      // This would toggle a mobile menu if implemented
+      alert('Mobile menu would open here. You can implement a proper menu.');
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 10,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Google Sheets form submission
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwQrd1uoAlQVdAO9alCvWQQ14FZ7s8nQyt5OVwn9aZ_IoBacdkxA949jmno5jSLnKlk/exec'; // Replace with your Google Apps Script URL
+    const orderForm = document.getElementById('orderForm');
+    
+      orderForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+      const submitBtn = orderForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.textContent;
+  
+  // Show loading state
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Processing...';
+  
+  try {
+    // Prepare form data
+    const formData = {
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      product: document.getElementById('product').value,
+      address: document.getElementById('address').value.trim(),
+      timestamp: new Date().toISOString()
+    };
+
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.phone || !formData.product || !formData.address) {
+      throw new Error('Please fill all required fields');
+    }
+
+    // Validate email format
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      throw new Error('Please enter a valid email address');
+    }
+
+    // Validate phone number
+    if (!/^[0-9]{10}$/.test(formData.phone)) {
+      throw new Error('Please enter a valid 10-digit phone number');
+    }
+
+    // Add cache-buster to URL to prevent caching issues
+    const urlWithCacheBuster = `${scriptURL}?t=${Date.now()}`;
+    
+    const response = await fetch(urlWithCacheBuster, {
+      method: 'POST',
+            body: JSON.stringify(formData),
+      mode: 'cors' // Important: must be 'cors' for cross-origin requests
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+        alert('Order placed successfully! We will contact you shortly.');
+    orderForm.reset();
+    
+  } catch (error) {
+    console.error('Submission error:', error);
+    alert(`Error: ${error.message}\n\nPlease try again or contact us directly.`);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalBtnText;
+  }
+});
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
