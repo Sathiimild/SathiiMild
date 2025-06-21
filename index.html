@@ -594,16 +594,22 @@
             <label for="phone">Phone Number</label>
             <input type="tel" id="phone" class="form-control" required>
           </div>
-          <div class="form-group">
-            <label for="product">Select Product</label>
-            <label for="weight">Enter weight (e.g., 300g, 750g):</label>
-            <select id="product" class="form-control" required>
-              <option value="">Choose an option</option>
-              <option value="banana_powder_250">Banana Powder - 250g (₹200)</option>
-              <option value="banana_powder_500">Banana Powder - 500g (₹350)</option>
-              <option value="banana_powder_1kg">Banana powder  - 1kg (₹600)</option>
-            </select>
-          </div>
+         <div class="form-group">
+  <label for="product">Select Product</label>
+  <select id="product" class="form-control" name="product" required onchange="toggleCustomWeight(this)">
+    <option value="">Choose an option</option>
+    <option value="banana_powder_250">Banana Powder - 250g (₹200)</option>
+    <option value="banana_powder_500">Banana Powder - 500g (₹350)</option>
+    <option value="banana_powder_1kg">Banana Powder - 1kg (₹600)</option>
+    <option value="custom">Other (Custom Weight)</option>
+  </select>
+</div>
+
+<!-- Hidden custom weight input -->
+<div class="form-group" id="customWeightGroup" style="display: none;">
+  <label for="customWeight">Enter Custom Weight (e.g., 300g, 750g)</label>
+  <input type="text" id="customWeight" class="form-control" name="custom_weight" placeholder="Enter weight like 300g or 750g" />
+</div>
           <div class="form-group">
             <label for="address">Shipping Address</label>
             <textarea id="address" class="form-control" required></textarea>
@@ -748,5 +754,16 @@
   <script>
     AOS.init();
   </script>
+  <script>
+function toggleCustomWeight(selectElement) {
+  const customGroup = document.getElementById("customWeightGroup");
+  if (selectElement.value === "custom") {
+    customGroup.style.display = "block";
+  } else {
+    customGroup.style.display = "none";
+    document.getElementById("customWeight").value = "";
+  }
+}
+</script>
 </body>
 </html>
